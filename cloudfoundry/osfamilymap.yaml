@@ -58,7 +58,7 @@ OpenBSD:
 
 Solaris: {}
 
-Windows: {}
+Windows:
   cli:
     pkg:
       archive:
