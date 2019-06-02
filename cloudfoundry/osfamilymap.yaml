@@ -22,7 +22,7 @@ Debian:
     pkg:
       repo:
         name: 'deb https://packages.cloudfoundry.org/debian stable main'
-        key_url: https://packages.cloudfoundry.org/fedora/cli.cloudfoundry.org.key
+        key_url: 'https://packages.cloudfoundry.org/fedora/cli.cloudfoundry.org.key'
         file: /etc/apt/sources.list.d/cloudfoundry.list
         dist: stable
 
@@ -31,16 +31,16 @@ RedHat:
   pkg:
     cli:
       repo:
-        baseurl: https://packages.cloudfoundry.org/fedora
-        key_url: https://packages.cloudfoundry.org/fedora/cli.cloudfoundry.org.key
+        baseurl: 'https://packages.cloudfoundry.org/fedora'
+        key_url: 'https://packages.cloudfoundry.org/fedora/cli.cloudfoundry.org.key'
         enabledTrue: 1
 
 Suse:
   cli:
     pkg:
       repo:
-        baseurl: https://packages.cloudfoundry.org/fedora
-        gpgkey: https://packages.cloudfoundry.org/fedora/cli.cloudfoundry.org.key
+        baseurl: 'https://packages.cloudfoundry.org/fedora'
+        gpgkey: 'https://packages.cloudfoundry.org/fedora/cli.cloudfoundry.org.key'
         gpgautoimport: True
         enabledTrue: 1
 
@@ -63,8 +63,8 @@ Windows: {}
     pkg:
       archive:
         extracted:
-          name: C:\\Temp\\CloudFoundry
-          source: https://packages.cloudfoundry.org/stable?release=windows64&version=RELEASE&source=github-rel
+          name: 'C:\\Temp\\CloudFoundry'
+          source: 'https://packages.cloudfoundry.org/stable?release=windows64&version=RELEASE&source=github-rel'
           source_hash: bf9f2651d3df84edc22a497eaa8f1df5d869b496ad0180e8dd782942e7627eb1
           options: None
         installer: True
@@ -76,7 +76,7 @@ MacOS:
     pkg:
       archive:
         extracted:
-          source: https://packages.cloudfoundry.org/stable?release=macosx64&version=RELEASE&source=github-rel
+          source: 'https://packages.cloudfoundry.org/stable?release=macosx64&version=RELEASE&source=github-rel'
           source_hash: df275c4d380b90466365c8bbbf38f7f73310900307b29fd661ef5b6241f801b3
           options: '--strip-components=1'  #recommended option, but beware tarbombs
         installer: True
