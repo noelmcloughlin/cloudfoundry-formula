@@ -2,5 +2,4 @@
 # vim: ft=sls
 
 include:
-  - .cli.clean
-  - .package.clean
+  - .install

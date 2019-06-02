@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-# vim: ft=sls
 
 {#- Get the `tplroot` from `tpldir` #}
 {%- set tplroot = tpldir.split('/')[0] %}
@@ -9,13 +7,6 @@
 include:
   - {{ sls_repo }}
 
-    {%- if cloudfoundry.cli.pkg.deps %}
-
-cloudfoundry-cli-package-deps-installed:
-  pkg.installed:
-    - name: {{ cloudfoundry.cli.pkg.deps }}
-
-    {%- endif %}
     {%- if cloudfoundry.cli.pkg.gem %}
 
 cloudfoundry-cli-package-gem-removed:
