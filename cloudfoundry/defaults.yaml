@@ -1,0 +1,44 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
+cloudfoundry:
+  rootgroup: root
+  config: '/etc/cloudfoundry'
+  service:
+    name: cloudfoundry
+
+  pkg_deps:
+    - curl
+    - bzip2
+    - gzip
+
+  # Just here for testing
+  added_in_defaults: defaults_value
+  winner: defaults
+
+  cli:
+    pkg:
+      release: 6.44.1
+      name: cf-cli
+      gem: cf
+      use_upstream: True
+      archive:
+        extracted:
+          name: /usr/local/bin
+          source: https://packages.cloudfoundry.org/stable?release=linux64-binary&version=6.44.1&source=github-rel
+          source_hash: b986a55fef4bd6f580d7a070f4592362309fe009ffdd9489b9d3b871aed07aa3
+          options: '--strip-components=1'  #recommended option, but beware tarbombs
+          extract_perms: False
+          overwrite: True
+          trim_output: True
+        installer: False
+        binary: cf
+      repo:
+        managed:
+          humanname: cloudfoundry-cli
+          name: cloudfoundry-cli
+          from: None
+          comments:
+            - installed by salt
+          gpgcheck: 1
+      
