@@ -17,8 +17,8 @@ cloudfoundry-cli-package-archive-install-file-directory:
 
 cloudfoundry-cli-package-archive-install-cmd-run:
   cmd.run:
-    - name: curl -s -L -o {{cloudfoundry.tmpdir}}/{{cloudfoundry.cli.pkg.archive.extracted.source}} {{cloudfoundry.cli.pkg.archive.source}}
-    - unless: test -f {{ cloudfoundry.tmpdir }}/{{ cloudfoundry.cli.pkg.archive.extracted.source }}
+    - name: curl -s -L -o {{cloudfoundry.cli.pkg.archive.extracted.source}} {{cloudfoundry.cli.pkg.archive.source}}
+    - unless: test -f {{ cloudfoundry.cli.pkg.archive.extracted.source }}
     - retry:
         attempts: 2
         until: True
@@ -27,6 +27,5 @@ cloudfoundry-cli-package-archive-install-cmd-run:
 
 cloudfoundry-cli-package-archive-install-archive-extracted:
   archive.extracted:
-    - enforce_toplevel: {{ 'False' if 'strip-components' in cloudfoundry.cli.pkg.archive.extracted.options else 'True' }}
     {{- format_kwargs(cloudfoundry.cli.pkg.archive.extracted) }}
 

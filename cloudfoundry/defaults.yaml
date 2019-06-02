@@ -6,8 +6,6 @@ cloudfoundry:
   rootgroup: root
   config: '/etc/cloudfoundry'
   tmpdir: /tmp/cloudfoundry
-  service:
-    name: cloudfoundry
 
   pkg_deps:
     - curl
@@ -28,12 +26,12 @@ cloudfoundry:
         source: https://packages.cloudfoundry.org/stable?release=linux64-binary&version=6.44.1&source=github-rel
         extracted:
           name: /usr/local/bin
-          source: cf-cli.tgz
+          source: /tmp/cloudfoundry/cf-cli.tgz
           source_hash: b986a55fef4bd6f580d7a070f4592362309fe009ffdd9489b9d3b871aed07aa3
-          options: '--strip-components=1'  #recommended option, but beware tarbombs
           extract_perms: False
           overwrite: True
           trim_output: True
+          enforce_toplevel: False
         installer: False
         binary: cf
       repo:
