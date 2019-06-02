@@ -40,7 +40,7 @@ RedHat:
 Suse:
   cli:
     pkg:
-      use_upstream: False
+      use_upstream_repo: False
       repo: {}
 
 Gentoo: {}

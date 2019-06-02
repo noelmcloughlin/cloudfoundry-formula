@@ -3,3 +3,4 @@
 
 include:
   - .package.clean
+  - .archive.clean

@@ -22,7 +22,8 @@ cloudfoundry:
       release: 6.44.1
       name: cf-cli
       gem: cf
-      use_upstream: True
+      use_upstream_repo: True
+      use_upstream_archive: False
       archive:
         extracted:
           name: /usr/local/bin
