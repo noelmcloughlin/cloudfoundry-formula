@@ -3,7 +3,7 @@
 
 {#- Get the `tplroot` from `tpldir` #}
 {%- set tplroot = tpldir.split('/')[0] %}
-{%- set sls_repo_clean = tplroot ~ '.repo.clean' %}
+{%- set sls_repo_clean = tplroot ~ '.cli.package.repo.clean' %}
 {%- from tplroot ~ "/map.jinja" import cloudfoundry with context %}
 
 include:

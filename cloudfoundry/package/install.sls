@@ -3,19 +3,19 @@
 
 {#- Get the `tplroot` from `tpldir` #}
 {%- set tplroot = tpldir.split('/')[0] %}
-{%- from tplroot ~ "/map.jinja" import template with context %}
+{%- from tplroot ~ "/map.jinja" import cloudfoundry with context %}
 
     {%- if cloudfoundry.pkg %}
 
-template-package-install-pkg-installed:
+cloudfoundry-package-install-pkg-installed:
   pkg.installed:
-    - name: {{ template.pkg }}
+    - name: {{ cloudfoundry.pkg }}
 
     {%- endif %}
     {%- if cloudfoundry.pkg_deps %}
 
-template-package-install-pkg-deps-installed:
+cloudfoundry-package-install-pkg-deps-installed:
   pkg.installed:
-    - name: {{ template.pkg_deps }}
+    - names: {{ cloudfoundry.pkg_deps }}
 
     {%- endif %}

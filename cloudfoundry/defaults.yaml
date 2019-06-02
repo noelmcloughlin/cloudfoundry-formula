@@ -2,6 +2,7 @@
 # vim: ft=yaml
 ---
 cloudfoundry:
+  pkg: ''
   rootgroup: root
   config: '/etc/cloudfoundry'
   service:
@@ -37,7 +38,6 @@ cloudfoundry:
         managed:
           humanname: cloudfoundry-cli
           name: cloudfoundry-cli
-          from: None
           comments:
             - installed by salt
           gpgcheck: 1

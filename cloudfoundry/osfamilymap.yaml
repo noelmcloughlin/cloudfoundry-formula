@@ -21,28 +21,27 @@ Debian:
   cli:
     pkg:
       repo:
-        name: 'deb https://packages.cloudfoundry.org/debian stable main'
-        key_url: 'https://packages.cloudfoundry.org/fedora/cli.cloudfoundry.org.key'
-        file: /etc/apt/sources.list.d/cloudfoundry.list
-        dist: stable
+        managed:
+          name: 'deb https://packages.cloudfoundry.org/debian stable main'
+          key_url: 'https://packages.cloudfoundry.org/fedora/cli.cloudfoundry.org.key'
+          file: /etc/apt/sources.list.d/cloudfoundry.list
+          dist: stable
 
 RedHat:
   config: /etc/cloudfoundry.conf
-  pkg:
-    cli:
+  cli:
+    pkg:
       repo:
-        baseurl: 'https://packages.cloudfoundry.org/fedora'
-        key_url: 'https://packages.cloudfoundry.org/fedora/cli.cloudfoundry.org.key'
-        enabledTrue: 1
+        managed:
+          baseurl: 'https://packages.cloudfoundry.org/fedora'
+          gpgkey: 'https://packages.cloudfoundry.org/fedora/cli.cloudfoundry.org.key'
+          enabled: 1
 
 Suse:
   cli:
     pkg:
-      repo:
-        baseurl: 'https://packages.cloudfoundry.org/fedora'
-        gpgkey: 'https://packages.cloudfoundry.org/fedora/cli.cloudfoundry.org.key'
-        gpgautoimport: True
-        enabledTrue: 1
+      use_upstream: False
+      repo: {}
 
 Gentoo: {}
 
@@ -66,7 +65,7 @@ Windows:
           name: 'C:\\Temp\\CloudFoundry'
           source: 'https://packages.cloudfoundry.org/stable?release=windows64&version=RELEASE&source=github-rel'
           source_hash: bf9f2651d3df84edc22a497eaa8f1df5d869b496ad0180e8dd782942e7627eb1
-          options: None
+          options: ''
         installer: True
   pkg_deps: []
 
@@ -81,5 +80,6 @@ MacOS:
           options: '--strip-components=1'  #recommended option, but beware tarbombs
         installer: True
       repo:
-        name: cloudfoundry/tap
+        managed:
+          name: cloudfoundry/tap
 
