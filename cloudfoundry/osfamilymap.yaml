@@ -23,7 +23,7 @@ Debian:
       repo:
         name: 'deb https://packages.cloudfoundry.org/debian stable main'
         key_url: https://packages.cloudfoundry.org/fedora/cli.cloudfoundry.org.key
-        file: file: /etc/apt/sources.list.d/cloudfoundry.list
+        file: /etc/apt/sources.list.d/cloudfoundry.list
         dist: stable
 
 RedHat:
