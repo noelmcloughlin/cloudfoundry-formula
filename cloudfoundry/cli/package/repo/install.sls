@@ -10,6 +10,6 @@
 
 cloudfoundry-cli-package-repo-install-pkgrepo-managed:
   pkgrepo.managed:
-    {{- format_kwargs(cloudfoundry.cli.pkg.repo) }}
+    {{- format_kwargs(cloudfoundry.cli.pkg.repo.managed) }}
 
     {%- endif %}

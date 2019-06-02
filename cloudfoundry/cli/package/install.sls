@@ -5,7 +5,6 @@
 {%- set tplroot = tpldir.split('/')[0] %}
 {%- set sls_repo = tplroot ~ '.repo' %}
 {%- from tplroot ~ "/map.jinja" import cloudfoundry with context %}
-{%- from tplroot ~ "/jinja/macros.j2" import format_kwargs with context -%}
 
 include:
   - {{ sls_repo }}
