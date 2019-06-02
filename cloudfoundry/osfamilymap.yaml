@@ -63,8 +63,9 @@ Windows:
       archive:
         extracted:
           name: 'C:\\Temp\\CloudFoundry'
-          source: 'https://packages.cloudfoundry.org/stable?release=windows64&version=RELEASE&source=github-rel'
+          source: 'https://packages.cloudfoundry.org/stable?release=windows64&version=6.44.1&source=github-rel'
           source_hash: bf9f2651d3df84edc22a497eaa8f1df5d869b496ad0180e8dd782942e7627eb1
+          archive_format: zip
           options: ''
         installer: True
   pkg_deps: []
@@ -75,9 +76,10 @@ MacOS:
     pkg:
       archive:
         extracted:
-          source: 'https://packages.cloudfoundry.org/stable?release=macosx64&version=RELEASE&source=github-rel'
+          source: 'https://packages.cloudfoundry.org/stable?release=macosx64&version=6.44.1&source=github-rel'
           source_hash: df275c4d380b90466365c8bbbf38f7f73310900307b29fd661ef5b6241f801b3
           options: '--strip-components=1'  #recommended option, but beware tarbombs
+          archive_format: pkg
         installer: True
       repo:
         managed:

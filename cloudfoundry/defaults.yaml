@@ -19,7 +19,6 @@ cloudfoundry:
 
   cli:
     pkg:
-      release: 6.44.1
       name: cf-cli
       gem: cf
       use_upstream_repo: True
@@ -33,6 +32,7 @@ cloudfoundry:
           extract_perms: False
           overwrite: True
           trim_output: True
+          archive_format: tar
         installer: False
         binary: cf
       repo:
