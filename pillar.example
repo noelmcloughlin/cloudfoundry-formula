@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # vim: ft=yaml
 ---
-# This formula works with no-pillars but here are example configurations.
+# This formula works with no-pillars but here are some example configurations.
 
 cloudfoundry:
   cli:
