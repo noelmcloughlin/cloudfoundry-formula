@@ -1,55 +1,19 @@
 # -*- coding: utf-8 -*-
 # vim: ft=yaml
 ---
+# This formula works with no-pillars but here are some example configurations.
+
 cloudfoundry:
-  lookup:
-    master: cloudfoundry-master
-    # Just for testing purposes
-    winner: lookup
-    added_in_lookup: lookup_value
-
-  # Using bash package and udev service as an example. This allows us to
-  # test the cloudfoundry formula itself. You should set these parameters to
-  # examples that make sense in the contexto of the formula you're writing.
-  {%- if grains.osfinger == 'CentOS-6' %}
-  pkg: cronie
-  service:
-    name: crond
-  {%- else %}
-  pkg: bash
-  service:
-    name: systemd-udevd
-  {%- endif %}
-  config: /etc/cloudfoundry-formula.conf
-
-  tofs:
-    # The files_switch key serves as a selector for alternative
-    # directories under the formula files directory. See TOFS pattern
-    # doc for more info.
-    # Note: Any value not evaluated by `config.get` will be used literally.
-    # This can be used to set custom paths, as many levels deep as required.
-    files_switch:
-      - any/path/can/be/used/here
-      - id
-      - osfinger
-      - os
-      - os_family
-    # All aspects of path/file resolution are customisable using the options below.
-    # This is unnecessary in most cases; there are sensible defaults.
-    # path_prefix: cloudfoundry_alt
-    # dirs:
-    #   files: files_alt
-    #   default: default_alt
-    # source_files:
-    #   cloudfoundry-config-file-file-managed:
-    #     - 'example_alt.tmpl'
-    #     - 'example_alt.tmpl.jinja'
-
-    # For testing purposes
-    source_files:
-      cloudfoundry-config-file-file-managed:
-        - 'example.tmpl.jinja'
-
-  # Just for testing purposes
-  winner: pillar
-  added_in_pillar: pillar_value
+  cli:
+    pkg:
+      ## Suse includes cf-cli in distro repo. Otherwise we default to
+      ## using the upstream package repo for our OS. But you can
+      ## use archive if no package suits your OS.
+      {%- if grains.os_family in ('Debian', 'RedHat', 'MacOS',) %}
+      use_upstream_repo: True
+      {%- endif %}
+      use_upstream_archive: False
+      archive:
+        source: https://packages.cloudfoundry.org/stable?release=linux64-binary&version=6.44.1&source=github-rel
+        extracted:
+          source_hash: b986a55fef4bd6f580d7a070f4592362309fe009ffdd9489b9d3b871aed07aa3
