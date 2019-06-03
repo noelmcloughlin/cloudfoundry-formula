@@ -10,10 +10,10 @@ include:
 
   {%- endif %}
 
-
 cloudfoundry-cli-package-install-gem-removed:
   gem.removed:
     - name: {{ cloudfoundry.cli.pkg.gem }}
+    - onlyif: gem >/dev/null 2>&1
 
 cloudfoundry-cli-package-install-pkg-installed:
   pkg.installed:
