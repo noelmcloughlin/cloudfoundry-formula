@@ -3,7 +3,10 @@
 cloudfoundry-formula
 ====================
 
-Formula to manage Cloud Foundry. Currently only supports: `cli` component.
+Formula to manage Cloud Foundry. Currently supports:
+
+* `cf-cli`
+
 
 |img_travis| |img_sr|
 
@@ -47,7 +50,7 @@ Available states
 
 *Meta-state (This is a state that includes other states)*.
 
-This installs from cloudfoundry solution.
+This installs from cloudfoundry solution. The default installation source is package.
 
 ``cloudfoundry.cli``
 ^^^^^^^^^^^^^^^^^^^^

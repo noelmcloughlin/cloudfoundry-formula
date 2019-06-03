@@ -26,6 +26,16 @@ cloudfoundry-cli-package-archive-install-cmd-run:
         splay: 10
 
 cloudfoundry-cli-package-archive-install-archive-extracted:
+   {%- if grains.os == 'MacOS' %}
+  macpackage.installed:
+    - name: {{ cloudfoundry.cli.pkg.archive.extracted.source }}
+    - store: True
+    - dmg: False
+    - app: False
+    - force: True
+    - allow_untrusted: True
+   {%- else %}
   archive.extracted:
     {{- format_kwargs(cloudfoundry.cli.pkg.archive.extracted) }}
 
+   {%- endif %}
