@@ -12,14 +12,14 @@
 ---
 # os_family: Debian
 Ubuntu:
-  pkg: cloudfoundry-ubuntu
   config: /etc/cloudfoundry.d/custom-ubuntu.conf
+  pkg_deps:
+    - software-properties-common
 
 Raspbian: {}
 
 # os_family: RedHat
 Fedora:
-  pkg: cloudfoundry-fedora
   service:
     name: service-fedora
 
