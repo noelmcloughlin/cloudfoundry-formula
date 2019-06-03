@@ -10,35 +10,27 @@
 # you will need to provide at least an empty dict in this file, e.g.
 # oscodenamemap: {}
 ---
-
-{% macro debian_package_repository(name, version, codename=none) %}
-{{ codename|default(name, true) }}:
-  cli:
+trusty:
+  bosh_cli:
     pkg:
-      repo:
-        from: {{ name }}
-        dist: {{ name }}
-{% endmacro %}
+      deps:
+        - libxslt-dev
+        - libreadline6
+        - libreadline6-dev
 
+xenial:
+  bosh_cli:
+    pkg:
+      deps:
+        - libxslt-dev
+        - libreadline6
+        - libreadline6-dev
 
-{% macro redhat_package_repository(name, version, codename=none) %}
-{{ codename|default(name, true) }}:
-  {# placeholder #}
-{% endmacro %}
+bionic:
+  bosh_cli:
+    pkg:
+      deps:
+        - libxslt1-dev
+        - libreadline7
+        - libreadline-dev
 
-#Debian
-{{ debian_package_repository('wheezy', '9.1') }}
-{{ debian_package_repository('jessie', '9.4') }}
-{{ debian_package_repository('stretch', '9.6') }}
-{{ debian_package_repository('wheezy', '9.1', 'Debian GNU/Linux 7 (wheezy)') }}
-{{ debian_package_repository('jessie', '9.4', 'Debian GNU/Linux 8 (jessie)') }}
-{{ debian_package_repository('stretch', '9.6', 'Debian GNU/Linux 9 (stretch)') }}
-{{ debian_package_repository('trusty', '9.3') }}
-{{ debian_package_repository('xenial', '9.5') }}
-{{ debian_package_repository('artful', '9.6') }}
-{{ debian_package_repository('bionic', '10') }}
-{{ debian_package_repository('cosmic', '10') }}
-
-#Redhat
-{{ redhat_package_repository('Fedora-27', '9.6', 'Fedora 27 (Twenty Seven)') }}
-{{ redhat_package_repository('Fedora-26', '9.6', 'Fedora 26 (Twenty Six)') }}

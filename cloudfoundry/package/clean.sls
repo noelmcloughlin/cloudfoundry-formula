@@ -5,17 +5,17 @@
 {%- set tplroot = tpldir.split('/')[0] %}
 {%- from tplroot ~ "/map.jinja" import cloudfoundry with context %}
 
-    {%- if cloudfoundry.pkg_deps %}
+    {%- if 'deps' in cloudfoundry.pkg and cloudfoundry.pkg.deps %}
 
 cloudfoundry-package-clean-pkg-deps-removed:
   pkg.removed:
-    - name: {{ cloudfoundry.pkg }}
+    - names: {{ cloudfoundry.pkg.deps }}
 
     {%- endif %}
-    {%- if cloudfoundry.pkg %}
+    {%- if 'name' in cloudfoundry.pkg and cloudfoundry.pkg.name %}
 
 cloudfoundry-package-clean-pkg-removed:
   pkg.removed:
-    - name: {{ cloudfoundry.pkg }}
+    - name: {{ cloudfoundry.pkg.name }}
 
     {%- endif %}

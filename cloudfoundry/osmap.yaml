@@ -13,8 +13,9 @@
 # os_family: Debian
 Ubuntu:
   config: /etc/cloudfoundry.d/custom-ubuntu.conf
-  pkg_deps:
-    - software-properties-common
+  pkg:
+    deps:
+      - software-properties-common
 
 Raspbian: {}
 

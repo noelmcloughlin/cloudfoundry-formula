@@ -2,16 +2,16 @@
 # vim: ft=yaml
 ---
 cloudfoundry:
-  pkg: ''
   rootuser: root
   rootgroup: root
   config: '/etc/cloudfoundry'
   tmpdir: '/tmp/cloudfoundry'
 
-  pkg_deps:
-    - curl
-    - bzip2
-    - gzip
+  pkg:
+    deps:
+      - curl
+      - bzip2
+      - gzip
 
   # Just here for testing
   added_in_defaults: defaults_value
@@ -29,8 +29,6 @@ cloudfoundry:
           name: /usr/local/bin
           source: /tmp/cloudfoundry/cf-cli.tgz
           source_hash: b986a55fef4bd6f580d7a070f4592362309fe009ffdd9489b9d3b871aed07aa3
-          extract_perms: False
-          overwrite: True
           trim_output: True
           enforce_toplevel: False
         installer: False
@@ -43,3 +41,13 @@ cloudfoundry:
             - installed by salt
           gpgcheck: 1
       
+  bosh_cli:
+    pkg:
+      use_upstream_repo: False
+      use_upstream_archive: False
+      use_upstream_binary: True
+      binary:
+        source: https://github.com/cloudfoundry/bosh-cli/releases/download/v5.5.1/bosh-cli-5.5.1-linux-amd64
+        source_hash: cb5e32580f527ac3b65cc2f22170826aa63fa0f85dd2d4725fdf9ff13c88d4e2
+        dest: /usr/local/bin
+        name: bosh

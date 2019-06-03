@@ -2,6 +2,5 @@
 # vim: ft=sls
 
 include:
-  - .bosh_cli.clean
-  - .cli.clean
   - .package.clean
+  - .binary.clean

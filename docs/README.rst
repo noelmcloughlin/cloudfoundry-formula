@@ -5,7 +5,8 @@ cloudfoundry-formula
 
 Formula to manage Cloud Foundry. Currently supports:
 
-* `cf-cli`
+* `cf cli`
+* `bosh cli`
 
 
 |img_travis| |img_sr|
@@ -65,32 +66,71 @@ This state will uninstall cloudfoundry-cli only.
 ``cloudfoundry.cli.package``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This state will install from cloudfoundry-cli package only.
+This state will install cloudfoundry-cli package only.
 
 ``cloudfoundry.cli.package.clean``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This state will uninstall from cloudfoundry-cli package only.
+This state will uninstall cloudfoundry-cli package only.
 
 ``cloudfoundry.cli.package.repo``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This state will install from cloudfoundry-cli package-repository only.
+This state will install cloudfoundry-cli package-repository only.
 
 ``cloudfoundry.cli.package.repo.clean``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This state will uninstall from cloudfoundry-cli package-repository only.
+This state will uninstall cloudfoundry-cli package-repository only.
 
 ``cloudfoundry.cli.archive``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This state will install from cloudfoundry-cli archive only.
+This state will install cloudfoundry-cli archive only.
 
 ``cloudfoundry.cli.archive.clean``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This state will uninstall from cloudfoundry-cli archive only.
+``cloudfoundry.bosh_cli``
+^^^^^^^^^^^^^^^^^^^^^^^
+
+This state will install cloudfoundry bosh-cli only.
+
+``cloudfoundry.bosh_cli.clean``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This state will uninstall cloudfoundry bosh-cli only.
+
+``cloudfoundry.bosh_cli.package``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This state will install cloudfoundry bosh-cli package only (MacOS).
+
+``cloudfoundry.bosh_cli.package.clean``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This state will uninstall the cloudfoundry bosh-cli package only (MacOS).
+
+``cloudfoundry.bosh_cli.package.repo``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This state will install cloudfoundry bosh-cli package-repository only (MacOS).
+
+``cloudfoundry.bosh_cli.package.repo.clean``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This state will uninstall cloudfoundry bosh-cli package repository only (MacOS).
+
+``cloudfoundry.bosh_cli.binary``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This state will install cloudfoundry bosh-cli binary archive only (Linux/Windows).
+
+``cloudfoundry.bosh_cli.binary.clean``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This state will uninstall the cloudfoundry bosh-cli binary archive only.
+
 
 
 Testing

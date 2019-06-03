@@ -5,6 +5,5 @@
 {%- set tplroot = tpldir.split('/')[0] %}
 {%- from tplroot ~ "/map.jinja" import cloudfoundry with context %}
 
-cloudfoundry-cli-package-archive-clean-file-absent:
-  file.absent:
-    - name: {{ cloudfoundry.cli.pkg.archive.extracted.name }}/{{ cloudfoundry.cli.pkg.archive.binary }}
+include:
+  - {{ '.binary' if cloudfoundry.bosh_cli.pkg.use_upstream_binary else '.package' }}
