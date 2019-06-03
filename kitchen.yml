@@ -103,6 +103,8 @@ verifier:
     - cli
   inspec_tests:
     - path: test/integration/cli
+    - path: test/integration/bosh_cli
 
 suites:
   - name: cli
+  - name: bosh_cli

@@ -2,6 +2,4 @@
 # vim: ft=sls
 
 include:
-  - .package
-  - .cli
-  - .bosh_cli
+  - .install

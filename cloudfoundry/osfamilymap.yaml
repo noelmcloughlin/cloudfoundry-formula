@@ -17,8 +17,9 @@
 
 Debian:
   config: /etc/cloudfoundry.d/custom.conf
-  pkg_deps:
-    - python-software-properties
+  pkg:
+    deps:
+      - python-software-properties
   cli:
     pkg:
       repo:
@@ -27,6 +28,19 @@ Debian:
           key_url: 'https://packages.cloudfoundry.org/fedora/cli.cloudfoundry.org.key'
           file: /etc/apt/sources.list.d/cloudfoundry.list
           dist: stable
+  bosh_cli:
+    pkg:
+      deps:
+        - build-essential
+        - zlibc
+        - zlib1g-dev
+        - ruby
+        - ruby-dev
+        - libxml2-dev
+        - libssl-dev
+        - libyaml-dev
+        - libsqlite3-dev
+        - sqlite3
 
 RedHat:
   config: /etc/cloudfoundry.conf
@@ -37,6 +51,20 @@ RedHat:
           baseurl: 'https://packages.cloudfoundry.org/fedora'
           gpgkey: 'https://packages.cloudfoundry.org/fedora/cli.cloudfoundry.org.key'
           enabled: 1
+  bosh_cli:
+    pkg:
+      deps:
+        - gcc
+        - gcc-c++
+        - ruby
+        - ruby-devel
+        - mysql-devel
+        - postgresql-devel
+        - postgresql-libs
+        - sqlite-devel
+        - libxslt-devel
+        - libxml2-devel
+        - patch
 
 Suse:
   cli:
@@ -60,6 +88,8 @@ Solaris: {}
 
 Windows:
   tmpdir: 'C:\\Temp'
+  pkg:
+    deps: []
   cli:
     pkg:
       archive:
@@ -69,7 +99,13 @@ Windows:
           source_hash: bf9f2651d3df84edc22a497eaa8f1df5d869b496ad0180e8dd782942e7627eb1
           archive_format: zip
         installer: True
-  pkg_deps: []
+  bosh_cli:
+    pkg:
+      binary:
+        source: https://github.com/cloudfoundry/bosh-cli/releases/download/v5.5.1/bosh-cli-5.5.1-windows-amd64.exe
+        source_hash: 4b84aa8bc96f8f04fcbaab97e4323ef9792eabf81b3502c452dcf29ea2048cdf
+        dest: 'C:\\Program\ Files\\CloudFoundry'
+        name: bosh
 
 MacOS:
   rootuser: {{ macos_rootuser | d('') }}
@@ -81,8 +117,19 @@ MacOS:
         extracted:
           source: /tmp/cloudfoundry/cf-cli.pkg
           source_hash: df275c4d380b90466365c8bbbf38f7f73310900307b29fd661ef5b6241f801b3
-        installer: True
       repo:
         managed:
           name: cloudfoundry/tap
-
+  bosh_cli:
+    pkg:
+      name: bosh-cli
+      use_upstream_repo: True
+      use_upstream_binary: False
+      binary:
+        source: https://github.com/cloudfoundry/bosh-cli/releases/download/v5.5.1/bosh-cli-5.5.1-darwin-amd64
+        source_hash: d9722fc6afbea8784320e73cb8c3314ea22b320c16849489f116c26d80f5f023
+        dest: /usr/local/bin
+        name: bosh
+      repo:
+        managed:
+          name: cloudfoundry/tap
