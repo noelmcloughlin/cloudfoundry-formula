@@ -11,6 +11,7 @@
 # osfamilymap: {}
 ---
 {%- if grains.os == 'MacOS' %}
+  {%- set macos_rootuser = salt['cmd.run']("stat -f '%Su' /dev/console") %}
   {%- set macos_rootgroup = salt['cmd.run']("stat -f '%Sg' /dev/console") %}
 {%- endif %}
 
@@ -71,6 +72,7 @@ Windows:
   pkg_deps: []
 
 MacOS:
+  rootuser: {{ macos_rootuser | d('') }}
   rootgroup: {{ macos_rootgroup | d('') }}
   cli:
     pkg:

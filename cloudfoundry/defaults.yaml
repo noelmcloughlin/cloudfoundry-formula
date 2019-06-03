@@ -3,9 +3,10 @@
 ---
 cloudfoundry:
   pkg: ''
+  rootuser: root
   rootgroup: root
   config: '/etc/cloudfoundry'
-  tmpdir: /tmp/cloudfoundry
+  tmpdir: '/tmp/cloudfoundry'
 
   pkg_deps:
     - curl
