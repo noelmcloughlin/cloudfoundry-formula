@@ -8,7 +8,7 @@
   {%- if cloudfoundry.cli.pkg.use_upstream_repo %}
       {%- if grains.os_family == 'MacOS' %}
 
-cloudfoundry-cli-package-repo-install-brew-tap:
+cloudfoundry-cli-package-repo-install-cmd-run-brew-tap:
   cmd.run:
     - name: /usr/local/bin/brew tap {{ cloudfoundry.cli.pkg.repo.managed.name }}
     - runas: {{ cloudfoundry.rootuser }}
