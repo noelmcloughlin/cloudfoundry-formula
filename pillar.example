@@ -26,3 +26,11 @@ cloudfoundry:
         source_hash: cb5e32580f527ac3b65cc2f22170826aa63fa0f85dd2d4725fdf9ff13c88d4e2
         dest: /usr/local/bin
         name: bosh
+  bbl:
+    pkg:
+      # only binaries (and source) are available for Linux/Windows.
+      # MacOS defaults to homebrew bbl package.
+      use_upstream_binary: True
+      binary:
+        source: https://github.com/cloudfoundry/bosh-bootloader/releases/download/v8.0.0/bbl-v8.0.0_linux_x86-64
+        source_hash: 0b1569472f34ed14cb3ba6af5214f584707d1a1fd9c90b807b52280d8ce8c7f9

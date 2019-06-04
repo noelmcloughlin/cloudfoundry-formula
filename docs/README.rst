@@ -6,6 +6,7 @@ cloudfoundry-formula
 Formula to manage Cloud Foundry. Currently supports:
 
 * `cf cli`
+* `bbl`
 * `bosh cli`
 
 
@@ -23,6 +24,7 @@ Formula to manage Cloud Foundry. Currently supports:
 A SaltStack formula for CloudFoundry
 
 .. contents:: **Table of Contents**
+   :depth: 1
 
 General notes
 -------------
@@ -89,6 +91,8 @@ This state will install cloudfoundry-cli archive only.
 ``cloudfoundry.cli.archive.clean``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+This state will uninstall cloudfoundry-cli archive only.
+
 ``cloudfoundry.bosh_cli``
 ^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -129,6 +133,46 @@ This state will install cloudfoundry bosh-cli binary archive only (Linux/Windows
 
 This state will uninstall the cloudfoundry bosh-cli binary archive only.
 
+
+``cloudfoundry.bbl``
+^^^^^^^^^^^^^^^^^^^^^^^
+
+This state will install cloudfoundry bbl only.
+
+``cloudfoundry.bbl.clean``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This state will uninstall cloudfoundry bbl only.
+
+``cloudfoundry.bbl.package``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This state will install cloudfoundry bbl package only (MacOS).
+
+``cloudfoundry.bbl.package.clean``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This state will uninstall the cloudfoundry bbl package only (MacOS).
+
+``cloudfoundry.bbl.package.repo``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This state will install cloudfoundry bbl package-repository only (MacOS).
+
+``cloudfoundry.bbl.package.repo.clean``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This state will uninstall cloudfoundry bbl package repository only (MacOS).
+
+``cloudfoundry.bbl.binary``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This state will install cloudfoundry bbl binary archive only (Linux/Windows).
+
+``cloudfoundry.bbl.binary.clean``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This state will uninstall the cloudfoundry bbl binary archive only.
 
 
 Testing
