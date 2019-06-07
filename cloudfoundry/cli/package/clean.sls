@@ -8,7 +8,7 @@
   {%- if cloudfoundry.cli.pkg.use_upstream_repo %}
 
 include:
-  - .cli.package.repo.clean
+  - .repo.clean
 
   {%- endif %}
 

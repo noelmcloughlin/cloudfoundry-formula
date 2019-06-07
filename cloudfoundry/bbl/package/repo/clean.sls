@@ -7,10 +7,10 @@
 
     {%- if grains.os_family == 'MacOS' %}
 
-cloudfoundry-bosh_cli-package-repo-install-cmd-run-brew-untap:
+cloudfoundry-bbl-package-repo-install-cmd-run-brew-untap:
   cmd.run:
-    - name: /usr/local/bin/brew untap {{ cloudfoundry.bosh_cli.pkg.repo.managed.name }}
+    - name: /usr/local/bin/brew untap {{ cloudfoundry.bbl.pkg.repo.managed.name }}
     - runas: {{ cloudfoundry.rootuser }}
-    - onlyif: /usr/local/bin/brew list | grep {{ cloudfoundry.bosh_cli.pkg.repo.managed.name }} >/dev/null 2>&1
+    - onlyif: /usr/local/bin/brew list | grep {{ cloudfoundry.bbl.pkg.repo.managed.name }} >/dev/null 2>&1
 
    {%- endif %}
